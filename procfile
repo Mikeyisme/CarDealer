@@ -1,1 +1,1 @@
-web: gunicorn CarDealer.wsgi --log-file -
+web: python manage.py && gunicorn CarDealer.wsgi

@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-import django_heroku
+import dj_database_url
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,13 +79,7 @@ WSGI_APPLICATION = 'CarDealer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+DATABASES = {'default': dj_database_url.config(default='sqlite3:///db.sqlite', conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,6 +119,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL ='media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -136,4 +133,34 @@ EMAIL_HOST_USER = 'groundshaka317@gmail.com'
 EMAIL_HOST_PASSWORD = 'Imtocool123'
 EMAIL_USE_TLS =  True 
 
-django_heroku.settings(locals())
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'MYAPP': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
+#Heroku Settings
+django_on_heroku.settings(locals(), staticfiles=False)
+del DATABASES['default']['OPTIONS']['sslmode']
