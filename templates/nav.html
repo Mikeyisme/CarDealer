@@ -1,0 +1,171 @@
+{% load static %}
+
+<div class="wrapper"> 
+	<!-- Header Start -->
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+					<div class="cs-logo">
+						<div class="cs-media">
+							<figure><a href="index-2.html"><img src="{% static 'assets/images/cs-logo.png' %}" alt="" /></a></figure>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+					<div class="cs-main-nav pull-right">
+						<nav class="main-navigation">
+							<ul>
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><a href="{% url 'about' %}">About Us</a></li>
+								<li><a href="{% url 'inventory' %}">Inventory</a></li>
+								<li><a href="{% url 'dealers' %}">Dealers</a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+								
+							</ul>
+						</nav>			
+									
+								</li>
+							</ul>
+						</nav>
+                        <div class="cs-user-option hidden-lg visible-sm visible-xs">
+							<div class="cs-login">
+								<div class="cs-login-dropdown"> <a href="#"><i class="icon-user2"></i> Kaiser <i class="icon-chevron-down2"></i></a>
+									<div class="cs-user-dropdown"> <strong>Post a new Ad</strong>
+										<ul>
+											<li><a href="user-genral-setting.html">General Setting<span class="cs-bgcolor">3</span></a></li>
+											<li><a href="user-car-listing.html">My Posted Cars <span class="cs-bgcolor">23</span></a></li>
+											<li><a href="user-post-new-vehicles.html">Post New Car</a></li>
+											<li><a href="user-car-shortlist.html">Shortlisted</a></li>
+											<li><a href="user-payments.html">Payment</a></li>
+											<li><a href="user-packages.html">Packages</a></li>
+										</ul>
+										<a class="btn-sign-out" href="#">Logout</a> </div>
+								</div>
+								<a class="cs-bgcolor btn-form" data-toggle="modal" href="http://chimpgroup.com/themeforest/automobile/remote.html" data-target="#user-sign-up-sm" aria-hidden="true"><i class="icon-plus"></i> Sell Car</a> 
+								<!-- Modal -->
+								<div class="modal fade" id="user-sign-up-sm" tabindex="-1" role="dialog">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											</div>
+											<div class="modal-body">
+												<h4>Create Account</h4>
+												<div class="cs-login-form">
+													<form>
+														<div class="input-holder">
+															<label for="cs-username11"> <strong>USERNAME</strong> <i class="icon-user-plus2"></i>
+																<input type="text" class="" id="cs-username11" placeholder="Type desired username">
+															</label>
+														</div>
+														<div class="input-holder">
+															<label for="cs-email11"> <strong>Email</strong> <i class="icon-envelope"></i>
+																<input type="email" class="" id="cs-email11" placeholder="Type desired username">
+															</label>
+														</div>
+														<div class="input-holder">
+															<label for="cs-login-password11"> <strong>Password</strong> <i class="icon-unlock40"></i>
+																<input type="password" id="cs-login-password11" placeholder="******">
+															</label>
+														</div>
+														<div class="input-holder">
+															<label for="cs-confirm-password11"> <strong>confirm password</strong> <i class="icon-unlock40"></i>
+																<input type="password" id="cs-confirm-password11" placeholder="******">
+															</label>
+														</div>
+														<div class="input-holder">
+															<input class="cs-color csborder-color" type="submit" value="Create Account">
+														</div>
+													</form>
+												</div>
+											</div>
+											<div class="modal-footer"> <a data-dismiss="modal" data-target="#user-sign-in-sm" data-toggle="modal" href="javascript:;" aria-hidden="true">Already have account</a>
+												<div class="cs-separator"><span>or</span></div>
+												<div class="cs-user-social"> <em>Signin with your Social Networks</em>
+													<ul>
+														<li><a href="#" data-original-title="facebook"><i class="icon-facebook-f"></i>facebook</a></li>
+														<li><a href="#" data-original-title="twitter"><i class="icon-twitter4"></i>twitter</a></li>
+														<li><a href="#" data-original-title="google-plus"><i class="icon-google4"></i>google</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal fade" id="user-sign-in-sm" tabindex="-1" role="dialog">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											</div>
+											<div class="modal-body">
+												<h4>User Sign in</h4>
+												<div class="cs-login-form">
+													<form>
+														<div class="input-holder">
+															<label for="cs-username-111"> <strong>USERNAME</strong> <i class="icon-user-plus2"></i>
+																<input type="text" class="" id="cs-username-111" placeholder="Type desired username">
+															</label>
+														</div>
+														<div class="input-holder">
+															<label for="cs-login-password-111"> <strong>Password</strong> <i class="icon-unlock40"></i>
+																<input type="password" id="cs-login-password-111" placeholder="******">
+															</label>
+														</div>
+														<div class="input-holder"> <a class="btn-forgot-pass" data-dismiss="modal" data-target="#user-forgot-pass-sm" data-toggle="modal" href="javascript:;" aria-hidden="true"><i class=" icon-question-circle"></i> Forgot password?</a> </div>
+														<div class="input-holder">
+															<input class="cs-color csborder-color" type="submit" value="SIGN IN">
+														</div>
+													</form>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<div class="cs-separator"><span>or</span></div>
+												<div class="cs-user-social"> <em>Signin with your Social Networks</em>
+													<ul>
+														<li><a href="#" data-original-title="facebook"><i class="icon-facebook-f"></i>facebook</a></li>
+														<li><a href="#" data-original-title="twitter"><i class="icon-twitter4"></i>twitter</a></li>
+														<li><a href="#" data-original-title="google-plus"><i class="icon-google4"></i>google</a></li>
+													</ul>
+												</div>
+												<div class="cs-user-signup"> <i class="icon-user-plus2"></i> <strong>Not a Member yet? </strong> <a class="cs-color" data-dismiss="modal" data-target="#user-sign-up-sm" data-toggle="modal" href="javascript:;" aria-hidden="true">Signup Now</a> </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal fade" id="user-forgot-pass-sm" tabindex="-1" role="dialog">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											</div>
+											<div class="modal-body">
+												<h4>Password Recovery</h4>
+												<div class="cs-login-form">
+													<form>
+														<div class="input-holder">
+															<label for="cs-email-111"> <strong>Email</strong> <i class="icon-envelope"></i>
+																<input type="email" class="" id="cs-email-111" placeholder="Type desired username">
+															</label>
+														</div>
+														<div class="input-holder">
+															<input class="cs-color csborder-color" type="submit" value="Send">
+														</div>
+													</form>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<div class="cs-user-signup"> <i class="icon-user-plus2"></i> <strong>Not a Member yet? </strong> <a href="javascript:;" data-toggle="modal" data-target="#user-sign-up-sm" data-dismiss="modal" class="cs-color" aria-hidden="true">Signup Now</a> </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
