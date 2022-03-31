@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/def7c38e-5ea9-4739-879c-d866c54a2732/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/cardealer",
+    "appService.deploySubpath": "."
+}
