@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'cars',
     'dealers',
     'django_extensions',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
