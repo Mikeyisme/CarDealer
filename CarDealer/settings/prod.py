@@ -9,7 +9,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOST = [
-    'cardealer-django.herokuapp.com',
+    'mikeyisme-car-dealer.herokuapp.com',
 ]
 
 # Staticfiles
