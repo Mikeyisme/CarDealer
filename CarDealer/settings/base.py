@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cars',
     'dealers',
+    'django_filters',
     'django_extensions',
 ]
 
