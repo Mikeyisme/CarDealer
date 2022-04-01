@@ -10,24 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import os
+from pathlib import Path  
+
 import dj_database_url
-import django_on_heroku
+from dotenv import load_dotenv, find_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent.parent  
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z%it_gn2*5!q2bk#=&!c=njm1kz#o6#*h341)m=gbf3hsr9*q^'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['cardealer-django.herokuapp.com']
 
 
 # Application definition
@@ -41,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cars',
     'dealers',
+    'django_extensions',
     'django_filters',
 ]
 
@@ -60,7 +53,7 @@ ROOT_URLCONF = 'CarDealer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +71,8 @@ WSGI_APPLICATION = 'CarDealer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+load_dotenv(find_dotenv())
 
 DATABASES = {'default': dj_database_url.config(default='sqlite3:///db.sqlite', conn_max_age=600)}
 
@@ -111,17 +106,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = 'static/'
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-MEDIA_URL ='media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -132,35 +116,3 @@ EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'groundshaka317@gmail.com'
 EMAIL_HOST_PASSWORD = 'Imtocool123'
 EMAIL_USE_TLS =  True 
-
-DEBUG_PROPAGATE_EXCEPTIONS = True
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'MYAPP': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
-}
-
-#Heroku Settings
-django_on_heroku.settings(locals(), staticfiles=False)
-del DATABASES['default']['OPTIONS']['sslmode']

@@ -1,1 +1,1 @@
-web: python manage.py && gunicorn CarDealer.wsgi
+web: python manage.py migrate && gunicorn CarDealer.wsgi
