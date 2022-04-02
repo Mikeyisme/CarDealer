@@ -5,6 +5,12 @@ from decouple import config
 
 from .base import *
 
+import mimetypes
+
+
+mimetypes.add_type("text/css", ".css", True)
+
+
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
@@ -18,6 +24,10 @@ ALLOWED_HOST = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
